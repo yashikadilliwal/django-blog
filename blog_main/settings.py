@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
        "django-blog-1-j1ml.onrender.com",
+           'django-blog-2-2xfl.onrender.com',
+
 ]
 
 
