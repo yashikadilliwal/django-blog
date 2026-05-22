@@ -1,60 +1,181 @@
 /* =========================
-   LIGHT MODE (DEFAULT)
+   GLOBAL
 ========================= */
 
 body {
   background-color: #f8f9fa;
   color: #212529;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: all 0.3s ease;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-/* Header */
+/* =========================
+   HEADER
+========================= */
+
 .blog-header-logo {
   font-family: 'Playfair Display', serif;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 700;
   color: #212529;
   text-decoration: none;
 }
 
 .blog-header-logo:hover {
+  color: #000;
   text-decoration: none;
-  color: #000;
 }
 
-/* Navigation */
+/* =========================
+   NAVBAR (CLEAN - NO UNDERLINE)
+========================= */
+
 .nav-scroller {
-
-  border-bottom: 1px solid #dee2e6;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 10px 20px;
+  margin-bottom: 25px;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-.nav-scroller .nav-link,
-.nav-scroller a {
-  color: #6c757d;
+.nav-scroller .nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.nav-scroller a:hover {
+/* Nav links */
+.nav-link-custom {
+  color: #555;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 6px 12px;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+}
+
+/* REMOVE underline completely */
+.nav-link-custom::after {
+  display: none;
+  content: none;
+}
+
+/* Hover */
+.nav-link-custom:hover {
   color: #000;
+  background-color: #f1f1f1;
 }
 
-/* Cards */
+/* Active */
+.active-nav {
+  color: #ffc107 !important;
+  background-color: #fff3cd;
+}
+
+/* =========================
+   CARDS
+========================= */
+
 .card {
   background-color: #ffffff;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 10px;
+  transition: all 0.3s ease;
 }
 
-/* Sidebar */
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   TEXT & LINKS
+========================= */
+
+h1, h2, h3, h4, h5, h6 {
+  color: #212529;
+}
+
+/* Heading links */
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  color: #212529 !important;
+  text-decoration: none;
+}
+
+.card a.links{
+  color: #2c7ce6 !important;
+  text-decoration: none;
+}
+/* Post titles */
+/* Post title - clean (no underline) */
+.post-title {
+  text-decoration: none !important;
+  color: #212529 !important;
+  transition: color 0.3s ease;
+}
+
+/* Hover (no underline, just color change) */
+.post-title:hover {
+  text-decoration: none !important;
+  color: #000;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
 .blog-sidebar .bg-light {
   background-color: #ffffff !important;
+  border-radius: 10px;
 }
 
-/* Footer */
+/* =========================
+   FOOTER
+========================= */
+
 .blog-footer {
   padding: 2rem 0;
   text-align: center;
   background-color: #ffffff;
   border-top: 1px solid #dee2e6;
   color: #6c757d;
+}
+
+/* =========================
+   SIDEBAR LIGHT MODE FIX
+========================= */
+
+/* Sidebar card */
+.card {
+  background-color: #ffffff !important;
+  color: #212529 !important;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+}
+
+/* Card body */
+.card-body {
+  background-color: transparent !important;
+}
+
+/* Sidebar headings */
+.card h4 {
+  color: #212529;
+}
+
+/* Sidebar links */
+.card a {
+  color: #495057;
+  text-decoration: none;
+}
+
+.card a:hover {
+  color: #000000;
+}
+
+/* List spacing */
+.card ul li {
+  margin-bottom: 6px;
 }
 
 /* =========================
@@ -71,24 +192,25 @@ body.dark-mode .blog-header-logo {
   color: #ffffff;
 }
 
-/* Navigation */
+/* NAVBAR DARK */
 body.dark-mode .nav-scroller {
-  background-color: #1e1e1e;
-  border-bottom: 1px solid #333;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
 }
 
-body.dark-mode .nav-scroller a {
+body.dark-mode .nav-link-custom {
   color: #bbbbbb;
 }
 
-body.dark-mode .nav-scroller a:hover {
+body.dark-mode .nav-link-custom:hover {
   color: #ffffff;
+  background-color: #222;
 }
 
-/* Jumbotron overlay adjustment */
-body.dark-mode .jumbotron {
-  background-color: rgba(0, 0, 0, 0.6) !important;
-  background-blend-mode: darken;
+body.dark-mode .active-nav {
+  color: #ffd369 !important;
+  background-color: #2a2a2a;
 }
 
 /* Cards */
@@ -97,15 +219,32 @@ body.dark-mode .card {
   color: #e4e4e4;
 }
 
-/* Blog Post */
-body.dark-mode .blog-post-meta {
-  color: #aaaaaa;
-}
-
 /* Sidebar */
 body.dark-mode .blog-sidebar .bg-light {
   background-color: #1e1e1e !important;
   color: #e4e4e4;
+}
+
+/* Footer */
+body.dark-mode .blog-footer {
+  background-color: #1a1a1a;
+  border-top: 1px solid #333;
+  color: #aaaaaa;
+}
+
+/* Text hierarchy */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+  color: #e4e4e4;
+}
+
+body.dark-mode p {
+  color: #cfcfcf;
+}
+
+body.dark-mode .text-muted {
+  color: #9a9a9a !important;
 }
 
 /* Links */
@@ -117,19 +256,172 @@ body.dark-mode a:hover {
   color: #82c4ff;
 }
 
-/* Footer */
-body.dark-mode .blog-footer {
-  background-color: #1a1a1a;
-  border-top: 1px solid #333;
-  color: #aaaaaa;
+/* Fix title links */
+body.dark-mode h1 a,
+body.dark-mode h2 a,
+body.dark-mode h3 a,
+body.dark-mode h4 a,
+body.dark-mode h5 a,
+body.dark-mode h6 a,
+body.dark-mode .post-title {
+  color: #e4e4e4 !important;
 }
 
-/* Small muted text */
-body.dark-mode .text-muted {
-  color: #999 !important;
+/* Jumbotron */
+body.dark-mode .jumbotron {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  background-blend-mode: darken;
 }
 
-.card:hover {
-  transform: translateY(-3px);
-  transition: 0.3s ease;
+/* =========================
+   SIDEBAR DARK MODE FIX
+========================= */
+
+/* Full card */
+.dark-mode .card {
+  background-color: #1e1e1e !important;
+  color: #e4e4e4 !important;
+  border: 1px solid #2a2a2a;
+}
+
+/* Card body */
+.dark-mode .card-body {
+  background-color: transparent !important;
+}
+
+/* Sidebar headings */
+.dark-mode .card h4 {
+  color: #f1f1f1;
+}
+
+/* Sidebar links */
+.dark-mode .card a {
+  color: #d6d6d6;
+  text-decoration: none;
+}
+
+.dark-mode .card a:hover {
+  color: #ffffff;
+}
+
+/* List items spacing (optional better look) */
+.dark-mode .card ul li {
+  margin-bottom: 6px;
+}
+
+/* =========================
+   HERO / JUMBOTRON TEXT FIX
+========================= */
+
+/* Title */
+.jumbotron h1 {
+  color: #ffffff !important;
+}
+
+/* Description */
+.jumbotron p {
+  color: #f1f1f1 !important;
+}
+
+/* Continue reading link */
+.jumbotron a {
+  color: #ffffff !important;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.jumbotron a:hover {
+  color: #dddddd !important;
+}
+
+
+/* =========================
+   SEARCH INPUT DARK MODE FIX
+========================= */
+
+/* Input field */
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+  background-color: #1e1e1e !important;
+  color: #e4e4e4 !important;
+  border: 1px solid #333 !important;
+}
+
+/* Placeholder text */
+.dark-mode input::placeholder {
+  color: #aaaaaa !important;
+}
+
+/* Focus state */
+.dark-mode input:focus,
+.dark-mode textarea:focus {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+  border-color: #4da3ff !important;
+  box-shadow: none;
+}
+
+/* Search button (if any) */
+.dark-mode button,
+.dark-mode .btn {
+  background-color: #2a2a2a;
+  color: #e4e4e4;
+  border: 1px solid #333;
+}
+
+.dark-mode button:hover,
+.dark-mode .btn:hover {
+  background-color: #3a3a3a;
+  color: #ffffff;
+}
+
+/* =========================
+   COMMENTS SECTION
+========================= */
+
+/* Light mode */
+h4 {
+  color: #212529;
+}
+
+/* Dark mode */
+.dark-mode h4 {
+  color: #e4e4e4;
+}
+/* =========================
+   NAV BUTTONS DARK MODE FIX
+========================= */
+
+body.dark-mode .btn-warning {
+  background-color: #ffc107;
+  color: #000;
+  border: none;
+}
+
+body.dark-mode .btn-warning:hover {
+  background-color: #ffca2c;
+}
+
+/* Register button */
+body.dark-mode .btn-outline-secondary {
+  color: #e4e4e4;
+  border-color: #888;
+}
+
+body.dark-mode .btn-outline-secondary:hover {
+  background-color: #2a2a2a;
+  color: #fff;
+  border-color: #aaa;
+}
+
+/* Theme toggle button */
+body.dark-mode .btn-dark {
+  background-color: #2a2a2a;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+body.dark-mode .btn-dark:hover {
+  background-color: #3a3a3a;
 }
