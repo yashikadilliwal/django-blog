@@ -28,9 +28,18 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('category/', include('blog.urls')),
-    path('<slug:slug>/', Blogviews.blogs , name='blogs'),
+    path('blog/<slug:slug>/', Blogviews.blogs , name='blogs'),
 
 # search meythod
-    path('blog/search/', Blogviews.search, name='search'),
+    path('search/', Blogviews.search, name='search'),
+
+# registartion
+    path('register/', views.register, name='register'),
+    path('login/', views.login, name='login'),
+    path('logout/', views.logout, name='logout'),
+
+# Dashboard
+
+    path('dashboard/', include('dashboard.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
