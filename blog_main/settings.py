@@ -27,8 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
        "django-blog-1-j1ml.onrender.com",
-    "127.0.0.1",
-    "localhost",
 ]
 
 
