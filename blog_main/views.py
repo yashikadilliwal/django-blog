@@ -20,7 +20,7 @@ def home(request):
         status=True   # ✅ FIXED
     )
 
-    about = get_object_or_404(About, id=1)
+    about = About.objects.first()
 
     context = {
         'categories': categories,
